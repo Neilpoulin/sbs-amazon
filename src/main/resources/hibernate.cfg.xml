@@ -8,10 +8,12 @@
         <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
         <property name="hibernate.connection.username">strumbystrum</property>
         <property name="hibernate.connection.password">strumbystrum</property>
-        <property name="default_schema">javaprod</property>
-        <property name="hibernate.connection.url">sbsprod.cw86ud5rwyyk.us-west-2.rds.amazonaws.com:3306</property>
+        <!--<property name="hibernate.default_schema">javaprod</property>-->
+        <property name="hibernate.connection.url">jdbc:mysql://sbsprod.cw86ud5rwyyk.us-west-2.rds.amazonaws.com/javaprod</property>
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
-        <property name="show_sql">true</property>
+        <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.format_sql">true</property>
+
         <!--<mapping resource="com/mkyong/common/Stock.hbm.xml"></mapping>-->
     </session-factory>
 </hibernate-configuration>

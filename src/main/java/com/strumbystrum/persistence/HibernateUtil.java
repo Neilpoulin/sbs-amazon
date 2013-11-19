@@ -1,7 +1,10 @@
 package com.strumbystrum.persistence;
 
+import com.strumbystrum.model.User;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.service.ServiceRegistry;
+import org.hibernate.service.ServiceRegistryBuilder;
 
 /**
  * Created with IntelliJ IDEA.
@@ -17,8 +20,14 @@ public class HibernateUtil {
     {
         try
         {
+            Configuration cfg = new Configuration().configure();
+            cfg.addAnnotatedClass(User.class);
+            ServiceRegistry serviceRegistry = new ServiceRegistryBuilder()
+                    .applySettings(cfg.getProperties()).buildServiceRegistry();
+
+
             // Create the SessionFactory from hibernate.cfg.xml
-            return new Configuration().configure().buildSessionFactory();
+            return cfg.buildSessionFactory(serviceRegistry);
         }
         catch (Throwable ex)
         {
